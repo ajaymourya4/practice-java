@@ -12,23 +12,26 @@ public class SelectionSort {
         intArray[4] = 11;
         intArray[5] = 15;
 
+        int[] sortedArray = selectionSort(intArray);
 
-        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--){
-
-            int largest = 0;
-
-            for (int i = 1; i <= lastUnsortedIndex; i++){
-                if(intArray[i] > intArray[largest])
-                    largest = i;
-            }
-
-            swap(intArray,lastUnsortedIndex,largest );
-
-        }
-
-        for(int i = 0; i < intArray.length; i++){
+        for(int i = 0; i < sortedArray.length; i++){
             System.out.println(intArray[i]);
         }
+    }
+
+    public static int[] selectionSort(int[] intArray){
+        for (int i = 0; i < intArray.length; i++){
+
+            int minimum = i;
+
+            for (int j = i+1; j < intArray.length; j++) {
+                if (intArray[j] < intArray[minimum])
+                    minimum = j;
+            }
+
+            swap(intArray, i, minimum);
+        }
+        return intArray;
     }
 
     public static void swap(int[] intArray, int i, int j){

@@ -12,16 +12,21 @@ public class BubbleSort {
         intArray[4] = 11;
         intArray[5] = 15;
 
-        for(int lastUnsortedIndex = intArray.length; lastUnsortedIndex > 0; lastUnsortedIndex--){
-            for(int i = 0; i < lastUnsortedIndex - 1; i++){
-                if(intArray[i] > intArray[i + 1])
-                    swap(intArray, i , i+1);
-            }
-        }
+        int[] sortedArray = bubbleSort(intArray);
 
-        for(int i = 0; i < intArray.length; i++){
+        for(int i = 0; i < sortedArray.length; i++){
             System.out.println(intArray[i]);
         }
+    }
+
+    public static int[] bubbleSort(int[] intArray){
+        for (int i = 0; i < intArray.length; i++){
+            for (int j = i+1; j < intArray.length; j++) {
+                if (intArray[j] < intArray[i])
+                    swap(intArray, i, j);
+            }
+        }
+        return intArray;
     }
 
     public static void swap(int[] intArray, int i, int j){
@@ -33,4 +38,5 @@ public class BubbleSort {
         intArray[i] = intArray[j];
         intArray[j] = temp;
     }
+
 }
