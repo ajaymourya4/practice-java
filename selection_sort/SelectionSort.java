@@ -1,6 +1,6 @@
-package bubble_sort;
+package selection_sort;
 
-public class BubbleSort {
+public class SelectionSort {
 
     public static void main(String[] args){
 
@@ -12,11 +12,18 @@ public class BubbleSort {
         intArray[4] = 11;
         intArray[5] = 15;
 
-        for(int lastUnsortedIndex = intArray.length; lastUnsortedIndex > 0; lastUnsortedIndex--){
-            for(int i = 0; i < lastUnsortedIndex - 1; i++){
-                if(intArray[i] > intArray[i + 1])
-                    swap(intArray, i , i+1);
+
+        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--){
+
+            int largest = 0;
+
+            for (int i = 1; i <= lastUnsortedIndex; i++){
+                if(intArray[i] > intArray[largest])
+                    largest = i;
             }
+
+            swap(intArray,lastUnsortedIndex,largest );
+
         }
 
         for(int i = 0; i < intArray.length; i++){
@@ -33,4 +40,5 @@ public class BubbleSort {
         intArray[i] = intArray[j];
         intArray[j] = temp;
     }
+
 }
