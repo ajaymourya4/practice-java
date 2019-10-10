@@ -12,21 +12,20 @@ public class BubbleSort {
         intArray[4] = 11;
         intArray[5] = 15;
 
-        int[] sortedArray = bubbleSort(intArray);
+        bubbleSort(intArray);
 
-        for(int i = 0; i < sortedArray.length; i++){
+        for(int i = 0; i < intArray.length; i++){
             System.out.println(intArray[i]);
         }
     }
 
-    public static int[] bubbleSort(int[] intArray){
+    public static void bubbleSort(int[] intArray){
         for (int i = 0; i < intArray.length; i++){
             for (int j = i+1; j < intArray.length; j++) {
                 if (intArray[j] < intArray[i])
                     swap(intArray, i, j);
             }
         }
-        return intArray;
     }
 
     public static void swap(int[] intArray, int i, int j){
